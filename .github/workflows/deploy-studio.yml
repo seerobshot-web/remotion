@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -45,12 +45,6 @@ jobs:
 
       - name: Create .nojekyll
         run: touch packages/example/build/.nojekyll
-
-      - name: Deploy to gh-pages branch
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: packages/example/build
-          branch: gh-pages
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
